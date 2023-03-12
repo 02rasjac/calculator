@@ -6,5 +6,9 @@ buttons.forEach((b) => {
 });
 
 function Update(e) {
-  out.textContent = e.target.dataset.val;
+  if (e.target.dataset.val != null) {
+    out.textContent += e.target.dataset.val;
+  } else if (e.target.dataset.op != null) {
+    out.textContent += e.target.dataset.op;
+  }
 }
