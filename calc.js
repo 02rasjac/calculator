@@ -18,7 +18,7 @@ function UpdateOp(e) {
   out.textContent += currOp;
   let inputs = GetInVals();
   if (inputs !== null) {
-    out.textContent = Operate(inputs.a, inputs.b, prevOp) + currOp;
+    out.textContent = Round(Operate(inputs.a, inputs.b, prevOp)) + currOp;
   }
   prevOp = currOp;
 }
@@ -38,7 +38,7 @@ function UpdateFunc(e) {
     case 'eval':
       let inputs = GetInVals();
       if (inputs !== null) {
-        out.textContent = Operate(inputs.a, inputs.b, prevOp);
+        out.textContent = Round(Operate(inputs.a, inputs.b, prevOp));
       }
       break;
 
@@ -61,3 +61,5 @@ function Operate(a, b, op) {
       break;
   }
 }
+
+const Round = (x) => Math.round((x + Number.EPSILON) * 100000) / 100000;
