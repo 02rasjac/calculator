@@ -40,7 +40,56 @@ button:active {
   background-color: rgb(40, 40, 40);
 }
 
-button:disabled {
+button[data-op] {
+  background-color: rgb(167, 89, 0);
+}
+
+button[data-op]:hover {
+  background-color: rgb(170, 92, 0);
+}
+
+button[data-op]:active {
+  background-color: rgb(164, 86, 0);
+}
+
+button[data-func='clr'] {
+  background-color: rgb(139, 0, 0);
+}
+
+button[data-func='clr']:hover {
+  background-color: rgb(142, 0, 0);
+}
+
+button[data-func='clr']:active {
+  background-color: rgb(136, 0, 0);
+}
+
+button[data-func='del'] {
+  background-color: rgb(0, 0, 139);
+}
+
+button[data-func='del']:hover {
+  background-color: rgb(0, 0, 142);
+}
+
+button[data-func='del']:active {
+  background-color: rgb(0, 0, 136);
+}
+
+button[data-func='eval'] {
+  background-color: rgb(0, 139, 0);
+}
+
+button[data-func='eval']:hover {
+  background-color: rgb(0, 142, 0);
+}
+
+button[data-func='eval']:active {
+  background-color: rgb(0, 136, 0);
+}
+
+button:disabled,
+button[data-op]:disabled {
   background-color: rgb(30, 30, 30);
 }
 
