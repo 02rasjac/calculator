@@ -25,18 +25,8 @@ h1 {
   background-color: var(--main-bg);
 }
 
-#input {
+#display {
   text-align: end;
-  height: 3.2em;
+  height: 1em;
   padding: 0 0.4em;
-}
-
-#small {
-  color: var(--secondary-color);
-  margin: 0.4em 0;
-  font-size: small;
-}
-
-#large {
-  margin: 0.6em 0;
 }

@@ -1,5 +1,4 @@
-let out = document.querySelector('#large');
-let fullOut = document.querySelector('#small');
+let out = document.querySelector('#display');
 let buttons = document.querySelectorAll('button');
 buttons.forEach((b) => {
   if (b.dataset.val != null) b.addEventListener('click', UpdateVal);
