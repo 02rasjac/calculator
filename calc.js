@@ -16,14 +16,36 @@ function UpdateVal(e) {
 function UpdateOp(e) {
   const currOp = e.target.dataset.op;
   out.textContent += currOp;
-  let arr = out.textContent.split(/[+\-*/]+/);
-  if (arr.length === 3) {
-    out.textContent = Operate(Number(arr[0]), Number(arr[1]), prevOp) + currOp;
+  let inputs = GetInVals();
+  if (inputs !== null) {
+    out.textContent = Operate(inputs.a, inputs.b, prevOp) + currOp;
   }
   prevOp = currOp;
 }
 
-function UpdateFunc(e) {}
+function GetInVals() {
+  let arr = out.textContent.split(/[+\-*/]+/);
+  console.log(arr);
+  if (prevOp !== null) {
+    return { a: Number(arr[0]), b: Number(arr[1]) };
+  }
+  return null;
+}
+
+function UpdateFunc(e) {
+  const func = e.target.dataset.func;
+  switch (func) {
+    case 'eval':
+      let inputs = GetInVals();
+      if (inputs !== null) {
+        out.textContent = Operate(inputs.a, inputs.b, prevOp);
+      }
+      break;
+
+    default:
+      break;
+  }
+}
 
 function Operate(a, b, op) {
   switch (op) {
