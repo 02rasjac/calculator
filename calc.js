@@ -9,6 +9,26 @@ function Update(e) {
   if (e.target.dataset.val != null) {
     out.textContent += e.target.dataset.val;
   } else if (e.target.dataset.op != null) {
-    out.textContent += e.target.dataset.op;
+    const op = e.target.dataset.op;
+    out.textContent += op;
+    let arr = out.textContent.split(op);
+    if (arr.length === 3) {
+      out.textContent = Operate(Number(arr[0]), Number(arr[1]), op) + op;
+    }
+  }
+}
+
+function Operate(a, b, op) {
+  switch (op) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return a / b;
+    default:
+      break;
   }
 }
