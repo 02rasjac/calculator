@@ -37,7 +37,6 @@ function GetInVals() {
 }
 
 function UpdateFunc(e) {
-  SetPeriod(false);
   const func = e.target.dataset.func;
   switch (func) {
     case 'eval':
@@ -45,11 +44,13 @@ function UpdateFunc(e) {
       if (inputs !== null) {
         out.textContent = Round(Operate(inputs.a, inputs.b, prevOp));
         prevOp = null;
+        SetPeriod(true);
       }
       break;
     case 'clr':
       out.textContent = '';
       prevOp = null;
+      SetPeriod(false);
     default:
       break;
   }
