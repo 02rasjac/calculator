@@ -42,7 +42,9 @@ function UpdateFunc(e) {
         prevOp = null;
       }
       break;
-
+    case 'clr':
+      out.textContent = '';
+      prevOp = null;
     default:
       break;
   }
