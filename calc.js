@@ -39,6 +39,7 @@ function UpdateFunc(e) {
       let inputs = GetInVals();
       if (inputs !== null) {
         out.textContent = Round(Operate(inputs.a, inputs.b, prevOp));
+        prevOp = null;
       }
       break;
 
