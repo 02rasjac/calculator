@@ -5,16 +5,19 @@ buttons.forEach((b) => {
   b.addEventListener('click', Update);
 });
 
+let prevOp = null;
+
 function Update(e) {
   if (e.target.dataset.val != null) {
     out.textContent += e.target.dataset.val;
   } else if (e.target.dataset.op != null) {
-    const op = e.target.dataset.op;
-    out.textContent += op;
-    let arr = out.textContent.split(op);
+    const currOp = e.target.dataset.op;
+    out.textContent += currOp;
+    let arr = out.textContent.split(/[+\-*/]+/);
     if (arr.length === 3) {
-      out.textContent = Operate(Number(arr[0]), Number(arr[1]), op) + op;
+      out.textContent = Operate(Number(arr[0]), Number(arr[1]), prevOp) + currOp;
     }
+    prevOp = currOp;
   }
 }
 
