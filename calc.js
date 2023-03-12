@@ -1,8 +1,10 @@
+let out = document.querySelector('#large');
+let fullOut = document.querySelector('#small');
 let buttons = document.querySelectorAll('button');
 buttons.forEach((b) => {
   b.addEventListener('click', Update);
 });
 
 function Update(e) {
-  console.log(e.target.dataset.val);
+  out.textContent = e.target.dataset.val;
 }
