@@ -7,6 +7,9 @@ buttons.forEach((b) => {
   else if (b.dataset.func != null) b.addEventListener('click', UpdateFunc);
 });
 
+let period = document.querySelector('button[data-val="."]');
+period.addEventListener('click', () => SetPeriod(true));
+
 let prevOp = null;
 
 function UpdateVal(e) {
@@ -14,6 +17,7 @@ function UpdateVal(e) {
 }
 
 function UpdateOp(e) {
+  SetPeriod(false);
   const currOp = e.target.dataset.op;
   out.textContent += currOp;
   let inputs = GetInVals();
@@ -33,6 +37,7 @@ function GetInVals() {
 }
 
 function UpdateFunc(e) {
+  SetPeriod(false);
   const func = e.target.dataset.func;
   switch (func) {
     case 'eval':
@@ -48,6 +53,11 @@ function UpdateFunc(e) {
     default:
       break;
   }
+}
+
+function SetPeriod(disabled) {
+  if (disabled) period.setAttribute('disabled', true);
+  else period.removeAttribute('disabled');
 }
 
 function Operate(a, b, op) {
