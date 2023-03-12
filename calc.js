@@ -51,6 +51,9 @@ function UpdateFunc(e) {
       out.textContent = '';
       prevOp = null;
       SetPeriod(false);
+    case 'del':
+      out.textContent = out.textContent.slice(0, -1);
+      break;
     default:
       break;
   }
